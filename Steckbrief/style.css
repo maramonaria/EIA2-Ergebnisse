@@ -24,7 +24,7 @@ a{
 }
 
 #rep{
-    border-top: 10px solid #f0ffff;
+    border: 10px solid #f0ffff;
     font-family: WaltographRegular;
     color: #292894;
     font-size: 2em;
