@@ -7,7 +7,7 @@ div{
     background-color: #f1e9d3;
     border-left: 7px solid #f0ffff;
     padding-bottom: .1%;
-    padding-left: 10%;
+    padding-left: 1%;
     margin-bottom:.5%;
 }
 p{
@@ -24,7 +24,7 @@ a{
 }
 
 #rep{
-    margin-top: 10px;
+    border-top: 10px solid #f0ffff;
     font-family: WaltographRegular;
     color: #292894;
     font-size: 2em;
