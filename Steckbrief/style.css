@@ -1,0 +1,30 @@
+body{
+    background-color: #ddc88e;
+    font-family: WaltographRegular;
+    color: #f0ffff;
+}
+div{
+    background-color: #f1e9d3;
+    border-left: 7px solid #f0ffff;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    margin-bottom:.5%;
+}
+p{
+    font-family: WaltographRegular;
+    color: #ff4a44;
+    font-size: 1.5em;
+    padding-top: .3em;
+    margin-bottom: -.1px;
+}
+a{
+    color: #487ae4;
+    font-size: 0.8em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#rep{
+    font-family: WaltographRegular;
+    color: #292894;
+    font-size: 2em;
+}
