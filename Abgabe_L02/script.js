@@ -199,5 +199,8 @@ function createHiddenCardHtml(_array, _arrayIndex, _classString) {
     holdingDiv.setAttribute("class", _classString + " " + "card" + " " + "backside");
     holdingDiv.setAttribute("id", _array[_arrayIndex].Farbe + _array[_arrayIndex].Wert);
     document.getElementById(_classString).appendChild(holdingDiv);
+    let image = document.createElement("img");
+    image.setAttribute("src", "parquet.png");
+    holdingDiv.appendChild(image);
 }
 //# sourceMappingURL=script.js.map

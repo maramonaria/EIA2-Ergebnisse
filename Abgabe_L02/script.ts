@@ -93,9 +93,7 @@ function karteLegen(_geklickteKarte: Karte, _index: number): void {
         }
         else {
             window.alert("Die Karte passt nicht! Spiel eine andere oder nimm eine neue Karte auf.");
-        }
-
-        
+        } 
     }   
 }
 
@@ -116,7 +114,7 @@ function gegnerzug(): void {
         // Fall 1: Gegner kann eine Karte legen
         if (gegnerkarten[i].Farbe == ablage[ablage.length - 1].Farbe || gegnerkarten[i].Wert == ablage[ablage.length - 1].Wert) {
             ablage.push(gegnerkarten[i]);
-            setTimeout(function () {document.getElementById(gegnerkarten[i].Farbe + gegnerkarten[i].Wert).classList.add("cardtransition"); gegnerkarten.splice(i,1);},500);
+            setTimeout(function () {document.getElementById(gegnerkarten[i].Farbe + gegnerkarten[i].Wert)!.classList.add("cardtransition"); gegnerkarten.splice(i,1);},500);
             setTimeout(function () {updateHtml(ablage); updateHtml(gegnerkarten);}, 1500);
             couldLay = true;
             break;
@@ -227,6 +225,10 @@ function createHiddenCardHtml(_array: Karte[], _arrayIndex: number, _classString
     holdingDiv.setAttribute("class", _classString + " " + "card" + " " + "backside");
     holdingDiv.setAttribute("id", _array[_arrayIndex].Farbe + _array[_arrayIndex].Wert);
     document.getElementById(_classString)!.appendChild(holdingDiv);
+
+    let image: HTMLElement = document.createElement("img");
+    image.setAttribute("src", "parquet.png");
+    holdingDiv.appendChild(image);
 }
 
 

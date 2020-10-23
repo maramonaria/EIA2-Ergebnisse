@@ -59,10 +59,10 @@ p{
     border: 10px solid #ffffff;
     border-radius: 8px;
 }
-.backside{
+.backside img {
     width: 80px;
     height:130px;
-    background-color: #b99fa9;
+    background-color: #47535c;
 }
 
 #player .card, #computer .card{
