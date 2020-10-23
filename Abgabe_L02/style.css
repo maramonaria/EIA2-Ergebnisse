@@ -1,0 +1,143 @@
+body{
+    background-color: #21ac4a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 1em;
+}
+main{
+    background-color: #21ac4a;
+    clear:both;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+p{
+    color: #000000;
+    padding: 0.5em;
+}
+#computer, #player{
+    clear:both;
+    background-color: #90ceca;
+    margin-left: 4.3%;
+    padding: 10px;
+    height: 190px;
+    width: 90%;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-right: 0.2em solid #3e8a8a;
+    border-bottom: 0.2em solid #3e8a8a;
+}
+
+#player{
+    background-color: #cace90;
+    border-right: 0.2em solid #999844;
+    border-bottom: 0.2em solid #999844;
+}
+#stapel{
+    float:left;
+    height: 150px;
+    width:100px;
+    background-color: #009999;
+    border: 3px solid #b97242;
+    border-radius: 11px;
+    margin: 2%;
+    margin-left: 4.3%;
+}
+#ablage{
+    float:left;
+    height: 150px;
+    width:100px;
+    background-color: #009999;
+    border-radius: 11px;
+    border: 3px solid #2c8d5d;
+    margin: 2%;
+}
+
+.card {
+    float:left;
+    width: 80px;
+    height: 130px;
+    border: 10px solid #ffffff;
+    border-radius: 8px;
+}
+.backside{
+    width: 80px;
+    height:130px;
+    background-color: #b99fa9;
+}
+
+#player .card, #computer .card{
+    margin-left: 1%;
+}
+
+#ablage .card, #stapel .card{
+    position: absolute;
+}
+
+.blue {
+    background-color: #0051ff;
+}
+.green {
+    background-color: #4bc44b;
+}
+.red {
+    background-color: #d13d49;
+}
+.yellow{
+    background-color: #ecce25;
+}
+
+.card p{
+    float:left;
+}
+
+.topleft{
+    color: white;
+    margin-top: -0.25em;
+}
+.topright{
+    top: 0px;
+    right:0px;
+    color: white;
+    margin-top: -0.25em;
+    margin-left: 1.8em;
+}
+.middle{
+    clear: both;
+    background-color: #ffffff;
+    border-radius: 100%;
+    font-size: 2em;
+    margin-left: 19.5%;
+    margin-top: -0.45em;
+}
+.yellow .middle{
+    color: #ecce25;
+}
+.blue .middle{
+    color: #0051ff;
+}
+.red .middle{
+    color:#d13d49;
+}
+.green .middle{
+    color: #4bc44b;
+}
+.bottomleft{
+    transform: rotate(180deg);
+    color: #ffffff;
+    margin-top: -1.9em;
+}
+.bottomright{
+    transform: rotate(180deg);
+    color: #ffffff;
+    margin-left: 1.8em;
+    margin-top: -1.9em;
+}
+
+#computer .cardtransition{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    margin-top: 2em;
+}
