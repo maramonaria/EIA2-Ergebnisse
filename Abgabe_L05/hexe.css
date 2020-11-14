@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(17, 46, 48);
+}
+head {
+	display: none;
+}
+
+
+p.slidervalue {
+    display: inline-flex;
+    clear: right;
+    margin-left: 10px;
+
+}
+h1 {
+	grid-column: span 2;
+    text-align: center;
+    font-family: 'Mystery Quest', cursive;
+    color: #2fce56;
+    text-shadow: 2px 1px #d3e475;
+}
+h2 {
+    font-family: 'Mystery Quest', cursive;
+    font-size: 1em;
+}
+#form {
+    padding-left: 14%;
+    margin-top:5%;
+}
+legend {
+    padding-bottom: .4em;
+    font-family: 'Mystery Quest', cursive;
+    font-size: 1.5em;
+}
+fieldset {
+    background-color: #2e4baa;
+    width: 25%;
+    overflow: auto;
+    color: #d3e475;
+    padding-bottom: 2%;
+    margin-bottom:2%;
+    float: left;
+    border: 3px solid #221461;
+}
+#fsTrankinfos {
+    background-color:#221461;
+    border: 3px solid #2e4baa;
+}
+#zutaten {
+    clear: left;
+}
+#temperatur, #stir {
+    margin-top: -18.5em;
+}
+section {
+    padding: 10px;
+    margin-left: 7%;
+    background-color: #221461;
+}
+#rezept {
+    margin-left:14%;
+    width: 72%;
+    background-color: #195832;
+    display: inline-block;
+    color: #d3e475;
+    
+}
