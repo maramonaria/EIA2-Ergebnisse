@@ -5,8 +5,10 @@ var WitchesCauldron;
     let anweisungscounter = 1;
     let tempEndcondChecked;
     let stirEndcondChecked;
+    let form;
     function handleLoad(_event) {
         WitchesCauldron.generateContent(WitchesCauldron.data);
+        form = document.querySelector("form");
         let fieldsets = document.querySelectorAll("fieldset");
         // Install listeners on fieldsets
         for (let i = 0; i < fieldsets.length; i++) {
@@ -19,6 +21,15 @@ var WitchesCauldron;
             let button = buttons[i];
             button.addEventListener("click", handleInfoChange);
         }
+        let submit = document.querySelector("button[id=submitbutton]");
+        submit.addEventListener("click", sendRecipe);
+    }
+    async function sendRecipe(_event) {
+        console.log("Send recipe");
+        let formData = new FormData(form);
+        let query = new URLSearchParams(formData);
+        await fetch("hexe.html?" + query.toString());
+        alert("Recipe sent!");
     }
     function handleInfoChange(_event) {
         let target = _event.target;

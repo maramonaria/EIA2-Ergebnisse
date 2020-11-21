@@ -65,3 +65,9 @@ section {
     color: #d3e475;
     
 }
+button {
+    display: inline-block;
+}
+div #submitDiv{
+    float:right;
+}

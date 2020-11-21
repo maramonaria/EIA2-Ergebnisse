@@ -148,7 +148,7 @@ function updateHtml(_array) {
     }
     // Bisherige Html Elemente aus der Section entfernen
     let myNode = document.getElementById(classStr);
-    while (myNode.firstChild) {
+    while (myNode && myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
     if (classStr == "player" || classStr == "ablage") {

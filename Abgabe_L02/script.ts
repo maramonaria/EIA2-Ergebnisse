@@ -87,7 +87,7 @@ function karteLegen(_geklickteKarte: Karte, _index: number): void {
             updateHtml(ablage);
 
             if (spielerkarten.length == 0) {
-                setTimeout(function() {window.alert("Du hast gewonnen!"); startGame();}, 500);
+                setTimeout(function(): void {window.alert("Du hast gewonnen!"); startGame(); }, 500);
             }
             else if (anDerReihe == "pc") gegnerzug();
         }
@@ -114,8 +114,8 @@ function gegnerzug(): void {
         // Fall 1: Gegner kann eine Karte legen
         if (gegnerkarten[i].Farbe == ablage[ablage.length - 1].Farbe || gegnerkarten[i].Wert == ablage[ablage.length - 1].Wert) {
             ablage.push(gegnerkarten[i]);
-            setTimeout(function () {document.getElementById(gegnerkarten[i].Farbe + gegnerkarten[i].Wert)!.classList.add("cardtransition"); gegnerkarten.splice(i,1);},500);
-            setTimeout(function () {updateHtml(ablage); updateHtml(gegnerkarten);}, 1500);
+            setTimeout(function (): void {document.getElementById(gegnerkarten[i].Farbe + gegnerkarten[i].Wert)!.classList.add("cardtransition"); gegnerkarten.splice(i, 1); }, 500);
+            setTimeout(function (): void {updateHtml(ablage); updateHtml(gegnerkarten); }, 1500);
             couldLay = true;
             break;
         }
@@ -123,13 +123,13 @@ function gegnerzug(): void {
     if (couldLay == false) {
         gegnerkarten.push(stapel[stapel.length - 1]);
         stapel.splice(stapel.length - 1, 1);
-        setTimeout(function() {updateHtml(stapel); updateHtml(gegnerkarten);}, 1600);
+        setTimeout(function(): void {updateHtml(stapel); updateHtml(gegnerkarten); }, 1600);
     }
 
     if (gegnerkarten.length <= 1) {
-        setTimeout(function() {window.alert("Gegner hat gewonnen"); startGame();}, 2000);
+        setTimeout(function(): void {window.alert("Gegner hat gewonnen"); startGame(); }, 2000);
     }
-    else setTimeout(function() {anDerReihe = "player";}, 2000);
+    else setTimeout(function(): void {anDerReihe = "player"; }, 2000);
 
 }
 
@@ -168,8 +168,8 @@ function updateHtml(_array: Karte[]): void {
     }
 
     // Bisherige Html Elemente aus der Section entfernen
-    let myNode: HTMLElement = document.getElementById(classStr);
-    while (myNode.firstChild) {
+    let myNode: HTMLElement | null = document.getElementById(classStr);
+    while (myNode && myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
 
@@ -215,7 +215,7 @@ function createOpenCardHtml(_array: Karte[], _arrayIndex: number, _classString: 
         i -= 1;
     }   
     if (_classString == "player") {
-        holdingDiv.addEventListener("click", function(): void {karteLegen(_array[_arrayIndex], _arrayIndex)}, false);   
+        holdingDiv.addEventListener("click", function(): void {karteLegen(_array[_arrayIndex], _arrayIndex); }, false);   
     }   
 }
 

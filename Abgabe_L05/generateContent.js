@@ -3,13 +3,18 @@ var WitchesCauldron;
 (function (WitchesCauldron) {
     function generateContent(_data) {
         console.log(_data);
-        //for (let ingredient of _data) {
-        //console.log(ingredient);
-        //let group: HTMLSelectElement = createSelect(ingredient);
-        //let fieldset: HTMLFieldSetElement | null = document.getElementById("zutaten");
-        //if (fieldset)
-        //    fieldset.appendChild(group);
-        //}
+        let selectbox = document.getElementById("zutatenSelect");
+        for (let ingredient of _data) {
+            console.log(ingredient);
+            console.log(ingredient.price);
+            let option = document.createElement("option");
+            option.value = ingredient.name;
+            option.innerText = ingredient.name;
+            option.setAttribute("price", ingredient.price.toFixed(2));
+            option.setAttribute("name", ingredient.name);
+            if (selectbox)
+                selectbox.appendChild(option);
+        }
     }
     WitchesCauldron.generateContent = generateContent;
 })(WitchesCauldron || (WitchesCauldron = {}));

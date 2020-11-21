@@ -3,10 +3,12 @@ namespace WitchesCauldron {
     let anweisungscounter: number = 1;
     let tempEndcondChecked: HTMLInputElement;
     let stirEndcondChecked: HTMLInputElement;
+    let form: HTMLFormElement;
     function handleLoad(_event: Event): void {
         
         generateContent(data);
         
+        form = <HTMLFormElement>document.querySelector("form");
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.querySelectorAll("fieldset");
 
         // Install listeners on fieldsets
@@ -21,6 +23,17 @@ namespace WitchesCauldron {
             let button: HTMLButtonElement = buttons[i];
             button.addEventListener("click", handleInfoChange);
         }
+
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[id=submitbutton]");
+        submit.addEventListener("click", sendRecipe);
+    }
+
+    async function sendRecipe(_event: Event): Promise<void> {
+        console.log("Send recipe");
+        let formData: FormData = new FormData(form);
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        await fetch("hexe.html?" + query.toString());
+        alert("Recipe sent!");
     }
 
     function handleInfoChange(_event: Event): void {
