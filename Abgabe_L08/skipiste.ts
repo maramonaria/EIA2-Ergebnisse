@@ -21,6 +21,7 @@ namespace Skipiste {
         drawSkilift();
         drawSkifahrer();
         drawTrees();
+        drawSnowflakes();
     }
 
     function drawBackground(): void {
@@ -137,7 +138,7 @@ namespace Skipiste {
 
     function drawSkilift(): void {
         console.log("Lift");
-        drawSchlepper({x: 700, y: 750});
+        drawSchlepper({x: 715, y: 740});
         drawLifthaus({x: 600, y: 800});
     }
 
@@ -151,36 +152,26 @@ namespace Skipiste {
         crc2.save();
         crc2.translate(_position.x, _position.y);
 
-        crc2.beginPath();
-        crc2.moveTo(0, -poleHeight);
-        crc2.lineTo(-100 * nPoles, - (nPoles * poleHeight * 0.8) - poleHeight);
-        crc2.closePath();
-        crc2.stroke();
-        
-        crc2.beginPath();
-        crc2.moveTo(15, -poleHeight - 10);
-        crc2.lineTo(-100 * (nPoles - 1) + 15, - ((nPoles - 1) * poleHeight * 0.8) - poleHeight - 10);
-        crc2.closePath();
-        crc2.stroke();
+        let lineLength: number = nPoles - 1;
+        for (let i: number = 0; i < 2; i++) {
+            crc2.beginPath();
+            crc2.moveTo(0, -poleHeight);
+            crc2.lineTo(-100 * lineLength, - (lineLength * poleHeight * 0.8) - poleHeight);
+            crc2.closePath();
+            crc2.stroke();
 
-        crc2.fillStyle = "HSL(5, 20%, 30%)";
+            crc2.fillStyle = "HSL(5, 20%, 30%)";
+            if (i == 1)
+                crc2.fillStyle = "HSL(5, 20%, 40%)";
 
-
-        for (let drawn: number = 0; drawn < nPoles; drawn++) {
-            crc2.fill(pole);
-            crc2.transform(1, 0, 0, 1, -100, -poleHeight * 0.8);
-            
-        }
-        crc2.restore();
-
-        crc2.save();
-        crc2.translate(_position.x + 15, _position.y - 10);
-        crc2.fillStyle = "HSL(5, 20%, 50%)";
-
-        for (let drawn: number = 0; drawn < nPoles; drawn++) {
-            crc2.fill(pole);
-            crc2.transform(1, 0, 0, 1, -100, -poleHeight * 0.8);
-            
+            crc2.save();
+            for (let drawn: number = 0; drawn < nPoles; drawn++) {
+                crc2.fill(pole);
+                crc2.transform(1, 0, 0, 1, -100, -poleHeight * 0.8);  
+            }
+            crc2.restore();
+            crc2.translate(-15, 10);
+            lineLength += 1;
         }
         crc2.restore();
     }
@@ -219,14 +210,11 @@ namespace Skipiste {
 
         let skiCount: number = 10;
 
-        crc2.save();
         for (let i: number = 0; i < skiCount; i++) {
             let x: number = Math.random() * 350 + 50;
             let y: number = Math.random() * 500 + 450;
-            drawSingleSkifahrer({x: x, y: y});
-            crc2.restore();    
-        }
-        
+            drawSingleSkifahrer({x: x, y: y});   
+        } 
     }
 
     function drawSingleSkifahrer(_position: Vector): void {
@@ -343,6 +331,31 @@ namespace Skipiste {
         crc2.fillStyle = "HSL(120, 60%, " + (Math.random() + 0.09) * 50 + "%)";
         crc2.fill();
 
+        crc2.restore();
+    }
+
+    function drawSnowflakes(): void {
+        console.log("Snowflakes");
+        let nParticles: number = 250;
+        let radiusParticle: number = 5;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradient.addColorStop(0, "HSLA(0,100%, 100%, 1)");
+        gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        
+        crc2.save();
+        crc2.fillStyle = gradient;
+
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x: number = Math.random() * crc2.canvas.width;
+            let y: number = (Math.random() * crc2.canvas.height);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
         crc2.restore();
     }
 }
