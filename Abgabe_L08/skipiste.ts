@@ -297,5 +297,52 @@ namespace Skipiste {
 
     function drawTrees(): void {
         console.log("Trees");
+       
+        crc2.save();
+        crc2.translate(30, 1000);
+        let nRows: number = 4;
+        let ymin: number = 0;
+        let xMax: number = 100;
+        for (let r: number = 0; r < nRows; r++) {
+            ymin += r * 30;
+            let randomX: number = Math.random() * xMax;
+            do {
+                let randomY: number = Math.random() * 50 + ymin;
+                drawSingleTree({x: randomX, y: randomY});
+                randomX = randomX + 50 +  Math.random() * 50;
+            } while (randomX < xMax);
+            xMax += 100;
+        }
+        crc2.restore();
+        
+    }
+
+    function drawSingleTree(_position: Vector): void {
+        console.log("SingleTree");
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.beginPath();
+        
+        crc2.moveTo(-30, 70);
+        crc2.lineTo(-20, 50);
+        crc2.lineTo(-25, 50);
+        crc2.lineTo(-15, 30);
+        crc2.lineTo(-20, 30);
+        crc2.lineTo(0, 0);
+        crc2.lineTo(20, 30);
+        crc2.lineTo(15, 30);
+        crc2.lineTo(25, 50);
+        crc2.lineTo(20, 50);
+        crc2.lineTo(30, 70);
+
+        crc2.closePath();
+
+
+        crc2.fillStyle = "HSL(120, 60%, " + (Math.random() + 0.09) * 50 + "%)";
+        crc2.fill();
+
+        crc2.restore();
     }
 }
